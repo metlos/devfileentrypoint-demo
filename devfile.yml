@@ -1,0 +1,38 @@
+specVersion: 0.0.1
+name: entrypoint-demo
+projects:
+- name: revapi
+  source:
+    type: git
+    location: https://github.com/revapi/revapi.git
+tools:
+- name: theia
+  type: cheEditor
+  id: org.eclipse.che.editor.theia:1.0.0
+- name: exec
+  type: chePlugin
+  id: che-machine-exec-plugin:0.0.1
+- name: mvn
+  type: dockerimage
+  image: maven:3.6.0-jdk-11
+  mountSources: true
+  memoryLimit: 1G
+  volumes:
+  - name: m2repo
+    containerPath: /m2  
+  env:
+  - name: MAVEN_OPTS
+    value: '-Dmaven.local.repo=/m2/repository' 
+  command: ['sleep', 'infinity']
+#- name: testapp
+#  type: kubernetes
+#  local: testapp.yml
+#  entrypoints:
+#  - parentName: server
+#    args: ['-p', '5000']
+commands:
+- actions:
+  - name: build
+    tool: mvn
+    command: "cd $CHE_PROJECTS_ROOT/revapi && mvn clean install"
+
