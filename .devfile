@@ -33,10 +33,10 @@ tools:
   entrypoints:
   - parentName: server
     command: ['http-server', '-p', '5000']
-commands:
-- name: build
-  actions:
-  - tool: mvn
-    type: exec
+#commands:
+#- name: build
+#  actions:
+#  - tool: mvn
+#    type: exec
     command: "cd $CHE_PROJECTS_ROOT/revapi && mvn clean install"
 
