@@ -22,7 +22,7 @@ tools:
     containerPath: /m2  
   env:
   - name: MAVEN_OPTS
-    value: '-Dmaven.local.repo=/m2/repository' 
+    value: '-Dmaven.repo.local=/m2/repository' 
   command: ['sleep', 'infinity']
 #- name: testapp
 #  type: kubernetes
