@@ -24,12 +24,12 @@ tools:
   - name: MAVEN_OPTS
     value: '-Dmaven.repo.local=/m2/repository' 
   command: ['sleep', 'infinity']
-#- name: testapp
-#  type: kubernetes
-#  local: testapp.yml
-#  entrypoints:
-#  - parentName: server
-#    args: ['-p', '5000']
+- name: testapp
+  type: kubernetes
+  local: testapp.yml
+  entrypoints:
+  - parentName: server
+    command: ['http-server', '-p', '5000']
 commands:
 - name: build
   actions:
