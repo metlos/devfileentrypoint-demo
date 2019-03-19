@@ -1,6 +1,3 @@
-#
-# Test app
-#
 specVersion: 0.0.1
 name: entrypoint-demo
 projects:
