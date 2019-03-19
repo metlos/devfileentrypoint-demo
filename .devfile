@@ -12,18 +12,18 @@ tools:
 - name: exec
   type: chePlugin
   id: che-machine-exec-plugin:0.0.1
-- name: mvn
-  type: dockerimage
-  image: maven:3.6.0-jdk-11
-  mountSources: true
-  memoryLimit: 1G
-  volumes:
-  - name: m2repo
-    containerPath: /m2  
-  env:
-  - name: MAVEN_OPTS
-    value: '-Dmaven.repo.local=/m2/repository' 
-  command: ['sleep', 'infinity']
+#- name: mvn
+#  type: dockerimage
+#  image: maven:3.6.0-jdk-11
+#  mountSources: true
+#  memoryLimit: 1G
+#  volumes:
+#  - name: m2repo
+#    containerPath: /m2  
+#  env:
+#  - name: MAVEN_OPTS
+#    value: '-Dmaven.repo.local=/m2/repository' 
+#  command: ['sleep', 'infinity']
 - name: testapp
   type: kubernetes
   local: testapp.yml
